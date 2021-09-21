@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Hover Effect on Card</title>
+    <script src="https://kit.fontawesome.com/53fef6a2d2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #a7ffeb;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+        .card{
+            background: white;
+            height: 380px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+            padding: 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 30px #000;
+            transform-style: preserve-3d;
+        }
+        .content{
+            color: #202020;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+        .user{
+            height: 100px;
+            width: 100px;
+            background: #1affc9;
+            border: 1px solid #1affc9;
+            border-radius: 50%;
+            margin: 30px 60px;
+            transform: translateZ(50px);
+        }
+        .fa-user{
+            color: white;
+            font-size: 40px;
+            line-height: 100px;
+        }
+        .content header{
+            margin: 20px 0;
+            font-size: 32px;
+            font-weight: 600;
+            transform: translateZ(50px);
+        }
+        .follow{
+            font-size: 23px;
+            font-weight: 600;
+            transform: translateZ(50px);
+        }
+        .icons{
+            margin: 20px 0 10px 0;
+            transform: translateZ(50px);
+           
+        }
+        .icons a{
+            margin: 0 4px;
+        }
+        .icons a i{
+            width: 45px;
+            height: 45px;
+            background: #1affc9;
+            border: 1px solid #1affc9;
+            line-height: 44px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 3px 5px #000;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .content{
+            height: 100%;
+            transform: translateZ(80px) scale(1);
+        }
+        .card:hover{
+            background: #043357;
+            color: white;
+        }
+
+        
+        
+
+    </style>
+
+
+
+    <div class="card" data-tilt>
+        <div class="content">
+            <div class="user">
+                <i class="fas fa-user"></i>
+            </div>
+            <header>Nidhi Sharma</header>
+            <div class="follow">Follow me on</div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("body").mousemove(function(p){
+            let rotateX = -($(window).innerWidth()/2-p.pageX)/20;
+            let rotateY = -($(window).innerWidth()/2-p.pageY)/20;
+            $(".card").css("transform","rotateX("+rotateX+"deg) rotateY("+rotateY+"deg)");
+        })
+    </script>
+</body>
+</html>
